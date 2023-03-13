@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://pkdiv.github.io/Blog/categories/</loc>
+    <loc>https://pkdiv.github.io/Blog/docs/</loc>
+    <lastmod>2023-03-13T15:22:31+05:30</lastmod>
+  </url><url>
+    <loc>https://pkdiv.github.io/Blog/docs/test/</loc>
+    <lastmod>2023-03-13T15:22:31+05:30</lastmod>
   </url><url>
     <loc>https://pkdiv.github.io/Blog/</loc>
+    <lastmod>2023-03-13T15:22:31+05:30</lastmod>
+  </url><url>
+    <loc>https://pkdiv.github.io/Blog/categories/</loc>
   </url><url>
     <loc>https://pkdiv.github.io/Blog/tags/</loc>
   </url>
