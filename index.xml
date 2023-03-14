@@ -5,16 +5,6 @@
     <link>https://pkdiv.dev/</link>
     <description>Recent content on pkdiv</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 13 Mar 2023 15:22:31 +0530</lastBuildDate><atom:link href="https://pkdiv.dev/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Overthewire Bandit (Level 0 - 10)</title>
-      <link>https://pkdiv.dev/docs/test/</link>
-      <pubDate>Mon, 13 Mar 2023 15:22:31 +0530</pubDate>
-      
-      <guid>https://pkdiv.dev/docs/test/</guid>
-      <description>Overthewire Bandit (Level 0 - 10) find / </description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://pkdiv.dev/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
