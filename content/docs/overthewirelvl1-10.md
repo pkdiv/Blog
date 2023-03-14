@@ -1,7 +1,6 @@
 ---
 title: "Overthewire Bandit (Level 0 - 10)"
 date: 2023-03-12T15:22:31+05:30
-draft: true
 ---
 
 OvertheWire Bandit is a beginner friendly wargames, introducting the players to basic linux commands and preparing them for other more complex wargames. 
@@ -54,7 +53,7 @@ ____
 
 ## Level 2 ➡ Level 3
 
-In this level the password for *bandit3* is stored in a file which has spaces in its name - **spaces in this filename**. 
+In this level the password for *bandit3* is stored in a file which has spaces in its name - **spaces in this filename**. In CLI space acts as a end of the filename. So to refer to a file with spaces in it's name, the space have to be prepended using \\(Backslash) or the name of the file is to be inserted in between "" (Quotation Marks).
 
 ```bash
 bandit2@bandit:~$ ls
@@ -68,6 +67,9 @@ aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
 ____
 
 ## Level 3 ➡ Level 4
+
+Files can be hidden by prepennding a . (period) to the filename. These files are not listed when *ls* is executed. To view them , ls has a flag *-a* or *--all* , which lists all the files including the hidden ones.
+
 ```bash
 bandit3@bandit:~$ ls
 inhere
@@ -81,6 +83,9 @@ bandit3@bandit:~/inhere$ cat .hidden
 ____
 
 # Level 4 ➡ Level 5 
+
+The level goal states that the password is stored in the only human readable file in the **inhere** directory. The directory contains 9 files. The password can be found by using cat command on the files, but is a tedious process. The *file* command can be used to display the type of a file. By using *./\** , we can list the type of all the files in the directory. The list shows a file with type as *ASCII test*. ASCII is a standard encoding format used for text data.
+
 ```bash
 bandit4@bandit:~$ ls
 inhere
@@ -104,6 +109,9 @@ lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
 ____
 
 ## Level 5 ➡ Level 6
+
+The password for *bandit6* is stored in a file in one of the directories in the **inhere** directory. Opening each of the directories and reading the content of the files is a very unexiting task. *find* command can be used to search the directories using CLI with the given characteristics. Based on the characters of the file given, the *-size* flag can be used to filter based on size. The **c** in *1033c* represents bytes (Check the man pages for other size characters). Another flag *!-executable* can be used to filter based on file being executable. But the current level can be completed even without using this flag, as executable files are usually highlighted in terminals.  
+
 ```bash
 bandit5@bandit:~$ ls
 inhere
@@ -120,6 +128,9 @@ P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
 ____
 
 ## Level 6 ➡ Level 7
+
+One of the files on the system contains the password for the next level. Its is impractical to search the whole file system for the file. So the *find* command can be used to search for the file. In this level the file has the charcteritic of being owned by the user *bandit7* - this can be specified by using the *-user* flag, owned by the group *bandit6* - this can be specified using *-group* flag and the size using *-size* flag.
+
 ```bash
 bandit6@bandit:~$ find / -size 33c -user bandit7 -group bandit6 2>/dev/null
 /var/lib/dpkg/info/bandit7.password
@@ -130,6 +141,9 @@ z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
 ____
 
 ## Level 7 ➡ Level 8
+
+*find* command searches directories for files with the specified characteristics but cannot find data with in a file. The *grep* command is used to search for content within a file. For this level, the goal says that the password is stored next to the word **millionth** , so searching for the word **millionth** will find the password.
+
 ```bash
 bandit7@bandit:~$ grep millionth data.txt
 millionth       TESKZC0XvTetK0S9xNwm25STk5iWrBvP
@@ -138,6 +152,11 @@ millionth       TESKZC0XvTetK0S9xNwm25STk5iWrBvP
 ____
 
 ## Level 8 ➡ Level 9
+
+*uniq* command is used to omit repeated lines . But these lines have to be consecutive line. So the *sort* command can be used to sort the file. *-u* flag of the *uniq* command prints the only line that occurs once. So the content of the file are sorted and piped using | (pipe) to the *uniq -u* command.
+
+| (pipe) connects the *stdout* of one command to *stdin* of the other command (put simply the output of one command acts becomes the input for the other)
+
 ```bash
 bandit8@bandit:~$ sort data.txt | uniq -u
 EN632PlfYiZbn3PhVK3XOGSlNInNE00t
@@ -146,6 +165,9 @@ EN632PlfYiZbn3PhVK3XOGSlNInNE00t
 ____
 
 ## Level 9 ➡ Level 10
+
+*strings* command prints the readable characters in a file. And similar to Level7 the password can be found by searching for the preceding characters, which are a few **=** characters. So the *strings* command and piping the output to *grep* the password can be found.
+
 ```bash
 bandit9@bandit:~$ strings data.txt | grep =====
 f========== theM
