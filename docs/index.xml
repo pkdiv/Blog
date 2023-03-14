@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Docs on pkdiv</title>
-    <link>https://pkdiv.github.io/Blog/docs/</link>
+    <link>https://pkdiv.dev/docs/</link>
     <description>Recent content in Docs on pkdiv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Mar 2023 15:22:31 +0530</lastBuildDate><atom:link href="https://pkdiv.github.io/Blog/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Mar 2023 15:22:31 +0530</lastBuildDate><atom:link href="https://pkdiv.dev/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Overthewire Bandit (Level 0 - 10)</title>
-      <link>https://pkdiv.github.io/Blog/docs/test/</link>
+      <link>https://pkdiv.dev/docs/test/</link>
       <pubDate>Mon, 13 Mar 2023 15:22:31 +0530</pubDate>
       
-      <guid>https://pkdiv.github.io/Blog/docs/test/</guid>
+      <guid>https://pkdiv.dev/docs/test/</guid>
       <description>Overthewire Bandit (Level 0 - 10) find / </description>
     </item>
     
