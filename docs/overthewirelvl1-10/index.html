@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Overthewire Bandit (Level 0 - 10) | pkdiv</title>
+<meta name="keywords" content="">
+<meta name="description" content="OvertheWire Bandit is a beginner friendly wargames, introducting the players to basic linux commands and preparing them for other more complex wargames.
+Link to the wargame : OverTheWire Bandit
+Level 0 The credentials to login to Level0 are
+username: bandit0
+password: bandit0
+Connect to the server using
+ssh bandit0@bandit.labs.overthewire.org -p 2220 Level 0 ➡ Level 1 Level 0 is a easy level. The password for bandit1 is stored in a file called readme.">
+<meta name="author" content="">
+<link rel="canonical" href="https://pkdiv.dev/docs/overthewirelvl1-10/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.6a98292fb8fa8cf0f3ba4042d4b75515c04267550f3ad49ff6271b5af9562443.css" integrity="sha256-apgpL7j6jPDzukBC1LdVFcBCZ1UPOtSf9icbWvlWJEM=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://pkdiv.dev/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://pkdiv.dev/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://pkdiv.dev/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://pkdiv.dev/apple-touch-icon.png">
+<link rel="mask-icon" href="https://pkdiv.dev/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Overthewire Bandit (Level 0 - 10)" />
+<meta property="og:description" content="OvertheWire Bandit is a beginner friendly wargames, introducting the players to basic linux commands and preparing them for other more complex wargames.
+Link to the wargame : OverTheWire Bandit
+Level 0 The credentials to login to Level0 are
+username: bandit0
+password: bandit0
+Connect to the server using
+ssh bandit0@bandit.labs.overthewire.org -p 2220 Level 0 ➡ Level 1 Level 0 is a easy level. The password for bandit1 is stored in a file called readme." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pkdiv.dev/docs/overthewirelvl1-10/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-03-12T15:22:31+05:30" />
+<meta property="article:modified_time" content="2023-03-12T15:22:31+05:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Overthewire Bandit (Level 0 - 10)"/>
+<meta name="twitter:description" content="OvertheWire Bandit is a beginner friendly wargames, introducting the players to basic linux commands and preparing them for other more complex wargames.
+Link to the wargame : OverTheWire Bandit
+Level 0 The credentials to login to Level0 are
+username: bandit0
+password: bandit0
+Connect to the server using
+ssh bandit0@bandit.labs.overthewire.org -p 2220 Level 0 ➡ Level 1 Level 0 is a easy level. The password for bandit1 is stored in a file called readme."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Docs",
+      "item": "https://pkdiv.dev/docs/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Overthewire Bandit (Level 0 - 10)",
+      "item": "https://pkdiv.dev/docs/overthewirelvl1-10/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Overthewire Bandit (Level 0 - 10)",
+  "name": "Overthewire Bandit (Level 0 - 10)",
+  "description": "OvertheWire Bandit is a beginner friendly wargames, introducting the players to basic linux commands and preparing them for other more complex wargames.\nLink to the wargame : OverTheWire Bandit\nLevel 0 The credentials to login to Level0 are\nusername: bandit0\npassword: bandit0\nConnect to the server using\nssh bandit0@bandit.labs.overthewire.org -p 2220 Level 0 ➡ Level 1 Level 0 is a easy level. The password for bandit1 is stored in a file called readme.",
+  "keywords": [
+    
+  ],
+  "articleBody": "OvertheWire Bandit is a beginner friendly wargames, introducting the players to basic linux commands and preparing them for other more complex wargames.\nLink to the wargame : OverTheWire Bandit\nLevel 0 The credentials to login to Level0 are\nusername: bandit0\npassword: bandit0\nConnect to the server using\nssh bandit0@bandit.labs.overthewire.org -p 2220 Level 0 ➡ Level 1 Level 0 is a easy level. The password for bandit1 is stored in a file called readme. The command to read the content of a file is cat. It read the contents of the file and displays it on the terminal.\nbandit0@bandit:~$ ls readme bandit0@bandit:~$ cat readme NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL Level 1 ➡ Level 2 The password for bandit2 is stored in a file named -(hypen). Using just cat - , the content of the file is not displayed on the terminal. This because -(hypen) when used alone reads the input from stdin (put simply accepts input from commnad line). ./ refers to current directory. When a filename is follwerd by ./ it refers to a file in the current directory, so ./- can be used to read the contents of the file named -(hypen).\nbandit1@bandit:~$ ls - bandit1@bandit:~$ cat ./- rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi Level 2 ➡ Level 3 In this level the password for bandit3 is stored in a file which has spaces in its name - spaces in this filename. In CLI space acts as a end of the filename. So to refer to a file with spaces in it’s name, the space have to be prepended using \\(Backslash) or the name of the file is to be inserted in between \"\" (Quotation Marks).\nbandit2@bandit:~$ ls spaces in this filename bandit2@bandit:~$ cat ./spaces\\ in\\ this\\ filename aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG bandit2@bandit:~$ cat \"spaces in this filename\" aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG Level 3 ➡ Level 4 Files can be hidden by prepennding a . (period) to the filename. These files are not listed when ls is executed. To view them , ls has a flag -a or –all , which lists all the files including the hidden ones.\nbandit3@bandit:~$ ls inhere bandit3@bandit:~$ cd inhere/ bandit3@bandit:~/inhere$ ls -a . .. .hidden bandit3@bandit:~/inhere$ cat .hidden 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe Level 4 ➡ Level 5 The level goal states that the password is stored in the only human readable file in the inhere directory. The directory contains 9 files. The password can be found by using cat command on the files, but is a tedious process. The file command can be used to display the type of a file. By using ./* , we can list the type of all the files in the directory. The list shows a file with type as ASCII test. ASCII is a standard encoding format used for text data.\nbandit4@bandit:~$ ls inhere bandit4@bandit:~$ cd inhere/ bandit4@bandit:~/inhere$ ls -file00 -file01 -file02 -file03 -file04 -file05 -file06 -file07 -file08 -file09 bandit4@bandit:~/inhere$ file ./* ./-file00: data ./-file01: data ./-file02: data ./-file03: data ./-file04: data ./-file05: Non-ISO extended-ASCII text, with NEL line terminators ./-file06: Non-ISO extended-ASCII text, with no line terminators, with escape sequences ./-file07: ASCII text ./-file08: data ./-file09: data bandit4@bandit:~/inhere$ cat ./-file07 lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR Level 5 ➡ Level 6 The password for bandit6 is stored in a file in one of the directories in the inhere directory. Opening each of the directories and reading the content of the files is a very unexiting task. find command can be used to search the directories using CLI with the given characteristics. Based on the characters of the file given, the -size flag can be used to filter based on size. The c in 1033c represents bytes (Check the man pages for other size characters). Another flag !-executable can be used to filter based on file being executable. But the current level can be completed even without using this flag, as executable files are usually highlighted in terminals.\nbandit5@bandit:~$ ls inhere bandit5@bandit:~$ cd inhere/ bandit5@bandit:~/inhere$ ls maybehere00 maybehere02 maybehere04 maybehere06 maybehere08 maybehere10 maybehere12 maybehere14 maybehere16 maybehere18 maybehere01 maybehere03 maybehere05 maybehere07 maybehere09 maybehere11 maybehere13 maybehere15 maybehere17 maybehere19 bandit5@bandit:~/inhere$ find ./ -size 1033c ./maybehere07/.file2 bandit5@bandit:~/inhere$ cat ./maybehere07/.file2 P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU Level 6 ➡ Level 7 One of the files on the system contains the password for the next level. Its is impractical to search the whole file system for the file. So the find command can be used to search for the file. In this level the file has the charcteritic of being owned by the user bandit7 - this can be specified by using the -user flag, owned by the group bandit6 - this can be specified using -group flag and the size using -size flag.\nbandit6@bandit:~$ find / -size 33c -user bandit7 -group bandit6 2\u003e/dev/null /var/lib/dpkg/info/bandit7.password bandit6@bandit:~$ cat /var/lib/dpkg/info/bandit7.password z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S Level 7 ➡ Level 8 find command searches directories for files with the specified characteristics but cannot find data with in a file. The grep command is used to search for content within a file. For this level, the goal says that the password is stored next to the word millionth , so searching for the word millionth will find the password.\nbandit7@bandit:~$ grep millionth data.txt millionth TESKZC0XvTetK0S9xNwm25STk5iWrBvP Level 8 ➡ Level 9 uniq command is used to omit repeated lines . But these lines have to be consecutive line. So the sort command can be used to sort the file. -u flag of the uniq command prints the only line that occurs once. So the content of the file are sorted and piped using | (pipe) to the uniq -u command.\n| (pipe) connects the stdout of one command to stdin of the other command (put simply the output of one command acts becomes the input for the other)\nbandit8@bandit:~$ sort data.txt | uniq -u EN632PlfYiZbn3PhVK3XOGSlNInNE00t Level 9 ➡ Level 10 strings command prints the readable characters in a file. And similar to Level7 the password can be found by searching for the preceding characters, which are a few = characters. So the strings command and piping the output to grep the password can be found.\nbandit9@bandit:~$ strings data.txt | grep ===== f========== theM ========== password ========== is ========== G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s ",
+  "wordCount" : "999",
+  "inLanguage": "en",
+  "datePublished": "2023-03-12T15:22:31+05:30",
+  "dateModified": "2023-03-12T15:22:31+05:30",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pkdiv.dev/docs/overthewirelvl1-10/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "pkdiv",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pkdiv.dev/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://pkdiv.dev/" accesskey="h" title="pkdiv (Alt + H)">pkdiv</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Overthewire Bandit (Level 0 - 10)
+    </h1>
+    <div class="post-meta"><span title='2023-03-12 15:22:31 +0530 +0530'>March 12, 2023</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>OvertheWire Bandit is a beginner friendly wargames, introducting the players to basic linux commands and preparing them for other more complex wargames.</p>
+<p>Link to the wargame : <a href="https://overthewire.org/wargames/bandit/bandit1.html">OverTheWire Bandit</a></p>
+<hr>
+<h2 id="level-0">Level 0<a hidden class="anchor" aria-hidden="true" href="#level-0">#</a></h2>
+<p>The credentials to login to Level0 are</p>
+<p><em>username: bandit0</em></p>
+<p><em>password: bandit0</em></p>
+<p>Connect to the server using</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh bandit0@bandit.labs.overthewire.org -p <span style="color:#ae81ff">2220</span>
+</span></span></code></pre></div><hr>
+<h2 id="level-0--level-1">Level 0 ➡ Level 1<a hidden class="anchor" aria-hidden="true" href="#level-0--level-1">#</a></h2>
+<p>Level 0 is a easy level. The password for <em>bandit1</em> is stored in a file called <strong>readme</strong>.
+The command to read the content of a file is cat. It read the contents of the file and displays it on the terminal.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit0@bandit:~$ ls
+</span></span><span style="display:flex;"><span>readme
+</span></span><span style="display:flex;"><span>bandit0@bandit:~$ cat readme
+</span></span><span style="display:flex;"><span>NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+</span></span></code></pre></div><hr>
+<h2 id="level-1--level-2">Level 1 ➡ Level 2<a hidden class="anchor" aria-hidden="true" href="#level-1--level-2">#</a></h2>
+<p>The password for <em>bandit2</em> is stored in a file named -(hypen). Using just <em>cat -</em> , the content of the file is not displayed on the terminal. This because -(hypen) when used alone reads the input from <em>stdin</em> (put simply accepts input from commnad line). <em>./</em>  refers to current directory. When a filename is follwerd by <em>./</em> it refers to a file in the current directory, so <em>./-</em> can be used to read the contents of the file named -(hypen).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit1@bandit:~$ ls
+</span></span><span style="display:flex;"><span>-
+</span></span><span style="display:flex;"><span>bandit1@bandit:~$ cat ./-
+</span></span><span style="display:flex;"><span>rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+</span></span></code></pre></div><hr>
+<h2 id="level-2--level-3">Level 2 ➡ Level 3<a hidden class="anchor" aria-hidden="true" href="#level-2--level-3">#</a></h2>
+<p>In this level the password for <em>bandit3</em> is stored in a file which has spaces in its name - <strong>spaces in this filename</strong>. In CLI space acts as a end of the filename. So to refer to a file with spaces in it&rsquo;s name, the space have to be prepended using \(Backslash) or the name of the file is to be inserted in between &quot;&quot; (Quotation Marks).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit2@bandit:~$ ls
+</span></span><span style="display:flex;"><span>spaces in this filename
+</span></span><span style="display:flex;"><span>bandit2@bandit:~$ cat ./spaces<span style="color:#ae81ff">\ </span>in<span style="color:#ae81ff">\ </span>this<span style="color:#ae81ff">\ </span>filename
+</span></span><span style="display:flex;"><span>aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+</span></span><span style="display:flex;"><span>bandit2@bandit:~$ cat <span style="color:#e6db74">&#34;spaces in this filename&#34;</span>
+</span></span><span style="display:flex;"><span>aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+</span></span></code></pre></div><hr>
+<h2 id="level-3--level-4">Level 3 ➡ Level 4<a hidden class="anchor" aria-hidden="true" href="#level-3--level-4">#</a></h2>
+<p>Files can be hidden by prepennding a . (period) to the filename. These files are not listed when <em>ls</em> is executed. To view them , ls has a flag <em>-a</em> or <em>&ndash;all</em> , which lists all the files including the hidden ones.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit3@bandit:~$ ls
+</span></span><span style="display:flex;"><span>inhere
+</span></span><span style="display:flex;"><span>bandit3@bandit:~$ cd inhere/
+</span></span><span style="display:flex;"><span>bandit3@bandit:~/inhere$ ls -a
+</span></span><span style="display:flex;"><span>.  ..  .hidden
+</span></span><span style="display:flex;"><span>bandit3@bandit:~/inhere$ cat .hidden
+</span></span><span style="display:flex;"><span>2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+</span></span></code></pre></div><hr>
+<h1 id="level-4--level-5">Level 4 ➡ Level 5<a hidden class="anchor" aria-hidden="true" href="#level-4--level-5">#</a></h1>
+<p>The level goal states that the password is stored in the only human readable file in the <strong>inhere</strong> directory. The directory contains 9 files. The password can be found by using cat command on the files, but is a tedious process. The <em>file</em> command can be used to display the type of a file. By using <em>./*</em> , we can list the type of all the files in the directory. The list shows a file with type as <em>ASCII test</em>. ASCII is a standard encoding format used for text data.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit4@bandit:~$ ls
+</span></span><span style="display:flex;"><span>inhere
+</span></span><span style="display:flex;"><span>bandit4@bandit:~$ cd inhere/
+</span></span><span style="display:flex;"><span>bandit4@bandit:~/inhere$ ls
+</span></span><span style="display:flex;"><span>-file00  -file01  -file02  -file03  -file04  -file05  -file06  -file07  -file08  -file09
+</span></span><span style="display:flex;"><span>bandit4@bandit:~/inhere$ file ./*
+</span></span><span style="display:flex;"><span>./-file00: data
+</span></span><span style="display:flex;"><span>./-file01: data
+</span></span><span style="display:flex;"><span>./-file02: data
+</span></span><span style="display:flex;"><span>./-file03: data
+</span></span><span style="display:flex;"><span>./-file04: data
+</span></span><span style="display:flex;"><span>./-file05: Non-ISO extended-ASCII text, with NEL line terminators
+</span></span><span style="display:flex;"><span>./-file06: Non-ISO extended-ASCII text, with no line terminators, with escape sequences
+</span></span><span style="display:flex;"><span>./-file07: ASCII text
+</span></span><span style="display:flex;"><span>./-file08: data
+</span></span><span style="display:flex;"><span>./-file09: data
+</span></span><span style="display:flex;"><span>bandit4@bandit:~/inhere$ cat ./-file07
+</span></span><span style="display:flex;"><span>lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+</span></span></code></pre></div><hr>
+<h2 id="level-5--level-6">Level 5 ➡ Level 6<a hidden class="anchor" aria-hidden="true" href="#level-5--level-6">#</a></h2>
+<p>The password for <em>bandit6</em> is stored in a file in one of the directories in the <strong>inhere</strong> directory. Opening each of the directories and reading the content of the files is a very unexiting task. <em>find</em> command can be used to search the directories using CLI with the given characteristics. Based on the characters of the file given, the <em>-size</em> flag can be used to filter based on size. The <strong>c</strong> in <em>1033c</em> represents bytes (Check the man pages for other size characters). Another flag <em>!-executable</em> can be used to filter based on file being executable. But the current level can be completed even without using this flag, as executable files are usually highlighted in terminals.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit5@bandit:~$ ls
+</span></span><span style="display:flex;"><span>inhere
+</span></span><span style="display:flex;"><span>bandit5@bandit:~$ cd inhere/
+</span></span><span style="display:flex;"><span>bandit5@bandit:~/inhere$ ls
+</span></span><span style="display:flex;"><span>maybehere00  maybehere02  maybehere04  maybehere06  maybehere08  maybehere10  maybehere12  maybehere14  maybehere16  maybehere18
+</span></span><span style="display:flex;"><span>maybehere01  maybehere03  maybehere05  maybehere07  maybehere09  maybehere11  maybehere13  maybehere15  maybehere17  maybehere19
+</span></span><span style="display:flex;"><span>bandit5@bandit:~/inhere$ find ./ -size 1033c
+</span></span><span style="display:flex;"><span>./maybehere07/.file2
+</span></span><span style="display:flex;"><span>bandit5@bandit:~/inhere$ cat ./maybehere07/.file2
+</span></span><span style="display:flex;"><span>P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
+</span></span></code></pre></div><hr>
+<h2 id="level-6--level-7">Level 6 ➡ Level 7<a hidden class="anchor" aria-hidden="true" href="#level-6--level-7">#</a></h2>
+<p>One of the files on the system contains the password for the next level. Its is impractical to search the whole file system for the file. So the <em>find</em> command can be used to search for the file. In this level the file has the charcteritic of being owned by the user <em>bandit7</em> - this can be specified by using the <em>-user</em> flag, owned by the group <em>bandit6</em> - this can be specified using <em>-group</em> flag and the size using <em>-size</em> flag.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit6@bandit:~$ find / -size 33c -user bandit7 -group bandit6 2&gt;/dev/null
+</span></span><span style="display:flex;"><span>/var/lib/dpkg/info/bandit7.password
+</span></span><span style="display:flex;"><span>bandit6@bandit:~$ cat /var/lib/dpkg/info/bandit7.password
+</span></span><span style="display:flex;"><span>z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+</span></span></code></pre></div><hr>
+<h2 id="level-7--level-8">Level 7 ➡ Level 8<a hidden class="anchor" aria-hidden="true" href="#level-7--level-8">#</a></h2>
+<p><em>find</em> command searches directories for files with the specified characteristics but cannot find data with in a file. The <em>grep</em> command is used to search for content within a file. For this level, the goal says that the password is stored next to the word <strong>millionth</strong> , so searching for the word <strong>millionth</strong> will find the password.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit7@bandit:~$ grep millionth data.txt
+</span></span><span style="display:flex;"><span>millionth       TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+</span></span></code></pre></div><hr>
+<h2 id="level-8--level-9">Level 8 ➡ Level 9<a hidden class="anchor" aria-hidden="true" href="#level-8--level-9">#</a></h2>
+<p><em>uniq</em> command is used to omit repeated lines . But these lines have to be consecutive line. So the <em>sort</em> command can be used to sort the file. <em>-u</em> flag of the <em>uniq</em> command prints the only line that occurs once. So the content of the file are sorted and piped using | (pipe) to the <em>uniq -u</em> command.</p>
+<p>| (pipe) connects the <em>stdout</em> of one command to <em>stdin</em> of the other command (put simply the output of one command acts becomes the input for the other)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit8@bandit:~$ sort data.txt | uniq -u
+</span></span><span style="display:flex;"><span>EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+</span></span></code></pre></div><hr>
+<h2 id="level-9--level-10">Level 9 ➡ Level 10<a hidden class="anchor" aria-hidden="true" href="#level-9--level-10">#</a></h2>
+<p><em>strings</em> command prints the readable characters in a file. And similar to Level7 the password can be found by searching for the preceding characters, which are a few <strong>=</strong> characters. So the <em>strings</em> command and piping the output to <em>grep</em> the password can be found.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit9@bandit:~$ strings data.txt | grep <span style="color:#f92672">=====</span>
+</span></span><span style="display:flex;"><span>f<span style="color:#f92672">==========</span> theM
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==========</span> password
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==========</span> is
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==========</span> G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://pkdiv.dev/">pkdiv</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

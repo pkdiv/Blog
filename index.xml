@@ -5,6 +5,22 @@
     <link>https://pkdiv.dev/</link>
     <description>Recent content on pkdiv</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://pkdiv.dev/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Mar 2023 15:22:31 +0530</lastBuildDate><atom:link href="https://pkdiv.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overthewire Bandit (Level 0 - 10)</title>
+      <link>https://pkdiv.dev/docs/overthewirelvl1-10/</link>
+      <pubDate>Sun, 12 Mar 2023 15:22:31 +0530</pubDate>
+      
+      <guid>https://pkdiv.dev/docs/overthewirelvl1-10/</guid>
+      <description>OvertheWire Bandit is a beginner friendly wargames, introducting the players to basic linux commands and preparing them for other more complex wargames.
+Link to the wargame : OverTheWire Bandit
+Level 0 The credentials to login to Level0 are
+username: bandit0
+password: bandit0
+Connect to the server using
+ssh bandit0@bandit.labs.overthewire.org -p 2220 Level 0 ➡ Level 1 Level 0 is a easy level. The password for bandit1 is stored in a file called readme.</description>
+    </item>
+    
   </channel>
 </rss>
