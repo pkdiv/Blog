@@ -2,3 +2,15 @@ baseURL: https://pkdiv.dev/
 languageCode: en-us
 title: pkdiv
 theme: PaperMod
+params:
+    homeInfoParams:
+        Title: Hi. I'm pkdiv 👋
+        Content: >
+          I am a Network Engineer and a cybersecurity student passionate about the world of computer security. I write articles on CTF walkthorughs and Cybersecurity topics.
+
+
+    socialIcons:
+        - name: Github
+          url: https://github.com/pkdiv
+        - name: Linkedin
+          url: https://www.linkedin.com/in/divyeshpk/
