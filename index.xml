@@ -6,7 +6,17 @@
     <description>Recent content on pkdiv</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Mar 2023 15:22:31 +0530</lastBuildDate><atom:link href="https://pkdiv.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Mar 2023 22:06:02 +0530</lastBuildDate><atom:link href="https://pkdiv.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overthewire Bandit (Level 11 - 20)</title>
+      <link>https://pkdiv.dev/docs/overthewire11-20/</link>
+      <pubDate>Sun, 26 Mar 2023 22:06:02 +0530</pubDate>
+      
+      <guid>https://pkdiv.dev/docs/overthewire11-20/</guid>
+      <description>Level 10 ➡ Level 11 The password is stored in a file named data.txt and is base64 encoded. Linux has a inbuilt command base64 to encode and decode base64. The base64 command with the -d flag , followed by the name of the file, gives us the password for the next level.
+bandit10@bandit:~$ ls data.txt bandit10@bandit:~$ cat data.txt VGhlIHBhc3N3b3JkIGlzIDZ6UGV6aUxkUjJSS05kTllGTmI2blZDS3pwaGxYSEJNCg== bandit10@bandit:~$ base64 -d data.txt The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM Level 11 ➡ Level 12 Password of the next level is stored in the data.</description>
+    </item>
+    
     <item>
       <title>Overthewire Bandit (Level 0 - 10)</title>
       <link>https://pkdiv.dev/docs/overthewirelvl1-10/</link>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Overthewire Bandit (Level 11 - 20) | pkdiv</title>
+<meta name="keywords" content="">
+<meta name="description" content="Level 10 ➡ Level 11 The password is stored in a file named data.txt and is base64 encoded. Linux has a inbuilt command base64 to encode and decode base64. The base64 command with the -d flag , followed by the name of the file, gives us the password for the next level.
+bandit10@bandit:~$ ls data.txt bandit10@bandit:~$ cat data.txt VGhlIHBhc3N3b3JkIGlzIDZ6UGV6aUxkUjJSS05kTllGTmI2blZDS3pwaGxYSEJNCg== bandit10@bandit:~$ base64 -d data.txt The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM Level 11 ➡ Level 12 Password of the next level is stored in the data.">
+<meta name="author" content="Divyesh P K">
+<link rel="canonical" href="https://pkdiv.dev/docs/overthewire11-20/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.6a98292fb8fa8cf0f3ba4042d4b75515c04267550f3ad49ff6271b5af9562443.css" integrity="sha256-apgpL7j6jPDzukBC1LdVFcBCZ1UPOtSf9icbWvlWJEM=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://pkdiv.dev/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://pkdiv.dev/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://pkdiv.dev/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://pkdiv.dev/apple-touch-icon.png">
+<link rel="mask-icon" href="https://pkdiv.dev/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Overthewire Bandit (Level 11 - 20)" />
+<meta property="og:description" content="Level 10 ➡ Level 11 The password is stored in a file named data.txt and is base64 encoded. Linux has a inbuilt command base64 to encode and decode base64. The base64 command with the -d flag , followed by the name of the file, gives us the password for the next level.
+bandit10@bandit:~$ ls data.txt bandit10@bandit:~$ cat data.txt VGhlIHBhc3N3b3JkIGlzIDZ6UGV6aUxkUjJSS05kTllGTmI2blZDS3pwaGxYSEJNCg== bandit10@bandit:~$ base64 -d data.txt The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM Level 11 ➡ Level 12 Password of the next level is stored in the data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pkdiv.dev/docs/overthewire11-20/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-03-26T22:06:02+05:30" />
+<meta property="article:modified_time" content="2023-03-26T22:06:02+05:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Overthewire Bandit (Level 11 - 20)"/>
+<meta name="twitter:description" content="Level 10 ➡ Level 11 The password is stored in a file named data.txt and is base64 encoded. Linux has a inbuilt command base64 to encode and decode base64. The base64 command with the -d flag , followed by the name of the file, gives us the password for the next level.
+bandit10@bandit:~$ ls data.txt bandit10@bandit:~$ cat data.txt VGhlIHBhc3N3b3JkIGlzIDZ6UGV6aUxkUjJSS05kTllGTmI2blZDS3pwaGxYSEJNCg== bandit10@bandit:~$ base64 -d data.txt The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM Level 11 ➡ Level 12 Password of the next level is stored in the data."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Docs",
+      "item": "https://pkdiv.dev/docs/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Overthewire Bandit (Level 11 - 20)",
+      "item": "https://pkdiv.dev/docs/overthewire11-20/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Overthewire Bandit (Level 11 - 20)",
+  "name": "Overthewire Bandit (Level 11 - 20)",
+  "description": "Level 10 ➡ Level 11 The password is stored in a file named data.txt and is base64 encoded. Linux has a inbuilt command base64 to encode and decode base64. The base64 command with the -d flag , followed by the name of the file, gives us the password for the next level.\nbandit10@bandit:~$ ls data.txt bandit10@bandit:~$ cat data.txt VGhlIHBhc3N3b3JkIGlzIDZ6UGV6aUxkUjJSS05kTllGTmI2blZDS3pwaGxYSEJNCg== bandit10@bandit:~$ base64 -d data.txt The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM Level 11 ➡ Level 12 Password of the next level is stored in the data.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Level 10 ➡ Level 11 The password is stored in a file named data.txt and is base64 encoded. Linux has a inbuilt command base64 to encode and decode base64. The base64 command with the -d flag , followed by the name of the file, gives us the password for the next level.\nbandit10@bandit:~$ ls data.txt bandit10@bandit:~$ cat data.txt VGhlIHBhc3N3b3JkIGlzIDZ6UGV6aUxkUjJSS05kTllGTmI2blZDS3pwaGxYSEJNCg== bandit10@bandit:~$ base64 -d data.txt The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM Level 11 ➡ Level 12 Password of the next level is stored in the data.txt file with each character rotated by 13 positions. Which means that of the original data had the character ‘a’ it would be replaced by the character ’n’ in the data file. So to retrieve the password, we should rotate the positions of each character by 13 characters backwards. (Note: Here rotating backward or forward doesn’t effect the solution as we have 26 Alphanets in English and so 13 being its half gives the same solution irrespective of the direction)\nbandit11@bandit:~$ ls data.txt bandit11@bandit:~$ cat data.txt Gur cnffjbeq vf WIAOOSFzMjXXBC0KoSKBbJ8puQm5lIEi bandit11@bandit:~$ cat data.txt | tr '[a-zA-Z]' '[n-za-mN-ZA-M]' The password is JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv Level 12 ➡ Level 13 Password for bandit13 needs a bit of work . The password is a hexdump of a file that has been compressed repeteadly. So we have to first get the original file from the hexdump and then repeatedly decompress the file until we get the password.\nxxd is a command to create and reverse hexdumps of files. The -r flag id used to specify that the input file is a hexdump and to reverse it. The text file following the command and the flag is the input file, which is followed by the name of the output file.\nfile command is used to find out the type of file. The compressr1 is a gzip file. gzip is one of the tools used to compress files. The gzip command along with the -d flag is used to decompress the .gz file.\nbandit12@bandit:~$ cd /tmp/new1 bandit12@bandit:/tmp/new1$ xxd -r data.txt compressr1 bandit12@bandit:/tmp/new1$ file compressr1 compressr1: gzip compressed data bandit12@bandit:/tmp/new1$ mv compressr1 compressr1.gz bandit12@bandit:/tmp/new1$ gzip -d compressr1.gz bandit12@bandit:/tmp/new1$ ls compressr1 data.txt Again running the file command we see that the output of the previous gzip is another compress file but has been compressed using bzip2 . bzip2 is similar to gzip and hence -d flag decompresses it.\nbandit12@bandit:/tmp/new1$ file compressr1 compressr1: bzip2 compressed data, block size = 900k bandit12@bandit:/tmp/new1$ mv compressr1 compressr1.bz2 bandit12@bandit:/tmp/new1$ bzip2 -d compressr1.bz2 bandit12@bandit:/tmp/new1$ ls compressr1 data.txt We again get a gzip file and use the same commands to decompress it.\nbandit12@bandit:/tmp/new1$ file compressr1 compressr1: gzip compressed data bandit12@bandit:/tmp/new1$ mv compressr1 compressr1.gz bandit12@bandit:/tmp/new1$ gzip -d compressr1.gz The output of the previous iteration is a .tar file which is another compressing tool.\nThe format of the output files for futher iterations are the same as one of the previous iterations. The process is just to be repeted until we get the password for the next level.\nbandit12@bandit:/tmp/new1$ file compressr1 compressr1: POSIX tar archive (GNU) bandit12@bandit:/tmp/new1$ mv compressr1 compressr1.tar bandit12@bandit:/tmp/new1$ tar -xvf compressr1.tar data5.bin bandit12@bandit:/tmp/new1$ file data5.bin data5.bin: POSIX tar archive (GNU) bandit12@bandit:/tmp/new1$ mv data5.bin data5.bin.tar bandit12@bandit:/tmp/new1$ tar -xvf data5.bin.tar data6.bin bandit12@bandit:/tmp/new1$ file data6.bin data6.bin: bzip2 compressed data, block size = 900k bandit12@bandit:/tmp/new1$ mv data6.bin data6.bin.bz2 bandit12@bandit:/tmp/new1$ bzip2 -d data6.bin.bz2 bandit12@bandit:/tmp/new1$ file data6.bin data6.bin: POSIX tar archive (GNU) bandit12@bandit:/tmp/new1$ tar -xvf data6.bin data8.bin bandit12@bandit:/tmp/new1$ file data8.bin data8.bin: gzip compressed data bandit12@bandit:/tmp/new1$ mv data8.bin data8.bin.gz bandit12@bandit:/tmp/new1$ gzip -d data8.bin.gz After decompressing the file repeatedly we get the ASCII text as the final output.\nbandit12@bandit:/tmp/new1$ file data8.bin data8.bin: ASCII text bandit12@bandit:/tmp/new1$ cat data8.bin The password is wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw Level 13 ➡ Level 14 The password for the next level is not given rather a sshkey.private is given.Logins through ssh can be done in two ways - entering the password everytime a user logs in or configure ssh to use private and public keys to login.\nFor this level, -i flag of the ssh command can be used to specify the file containing the private key of the user bandit14.\nThe level goal also says that the password for the current level is stored in the file /etc/bandit_pass/bandit14. (The password maybe not be required for the current level but is required to move to level 15)\nbandit13@bandit:~$ ls sshkey.private bandit13@bandit:~$ ssh bandit14@localhost -i sshkey.private -p 2220 The authenticity of host '[localhost]:2220 ([127.0.0.1]:2220)' can't be established. ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY. This key is not known by any other names Are you sure you want to continue connecting (yes/no/[fingerprint])? yes . . bandit14@bandit:~$ bandit14@bandit:~$ cat /etc/bandit_pass/bandit14 fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq Level 14 ➡ Level 15 The password for the next is to be obtained by sending the password of user bandit14 to port 30000 on localhost. Localhost refers to the device itself - used to refer to services running on the local device.\nnc - netcat is a tool that can be used to make TCP/UDP connection. To send data to a device on the network through a particular port, the command nc is followed by the hostname which is followed by the port number .\nbandit14@bandit:~$ nc localhost 30000 fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq Correct! jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt Level 15 ➡ Level 16 The current level is similar to the previous level i.e, data has to be send to a service running on the local device but needs to be encrypted using SSL.\nopenssl is a tool used to deal with various properties of the SSL protcol. For the current level, openssl is used to open a secure connection to port 30001 on localhost.\nThe command openssl s_client is used to esablish a connection with a remote host. -connect is used to specify the hostname and the port seperated by a colon.\nbandit15@bandit:~$ openssl s_client -connect localhost:30001 CONNECTED(00000003) . . read R BLOCK jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt Correct! JQttfApK4SeyHwDlI9SXGR50qclOAil1 Level 16 ➡ Level 17 To complete this level we have a task simialr to the previous levels but the port on which the data is to be sent has to be determined. The level goal says that the it is one of the port between 31000 to 32000. To find out the port, the network has to be scanned on these port and to figure out the services running on them.\nnmap - network mapper is a tool used to perform various network scans. -sV flag can be used to find the services running on the scanned ports and lists them.\nbandit16@bandit:~$ nmap localhost -p 31000-32000 -sV Starting Nmap 7.80 ( https://nmap.org ) at 2023-04-03 11:14 UTC Nmap scan report for localhost (127.0.0.1) Host is up (0.00013s latency). Not shown: 996 closed ports PORT STATE SERVICE VERSION 31046/tcp open echo 31518/tcp open ssl/echo 31691/tcp open echo 31790/tcp open ssl/unknown 31960/tcp open echo . . Service detection performed. Please report any incorrect results at https://nmap.org/submit/ . Nmap done: 1 IP address (1 host up) scanned in 98.44 seconds The result of the nmap shows two ports on which openssl is running. One of these ports sends back the data while the other sends the password for the next level. Connecting to both the ports - port 31790 gives use the password of the next level.\nbandit16@bandit:~$ openssl s_client localhost:31518 CONNECTED(00000003) . . read R BLOCK JQttfApK4SeyHwDlI9SXGR50qclOAil1 JQttfApK4SeyHwDlI9SXGR50qclOAil1 bandit16@bandit:~$ openssl s_client localhost:31790 CONNECTED(00000003) . . read R BLOCK JQttfApK4SeyHwDlI9SXGR50qclOAil1 Correct! -----BEGIN RSA PRIVATE KEY----- . . -----END RSA PRIVATE KEY----- closed Level 17 ➡ Level 18 Two files are present in the home directory - passwords.old and passwords.new . The line that is changed between the two files is the password of the next level.\ndiff is a command used to find the differences between two files. diff follwed by the file names gives the output.\n\u003e ssh bandit17@bandit.labs.overthewire.org -p 2220 -i .\\bandit17.txt bandit17@bandit:~$ ls passwords.new passwords.old bandit17@bandit:~$ diff passwords.old passwords.new 42c42 \u003c f9wS9ZUDvZoo3PooHgYuuWdawDFvGld2 \u003c---- specifies the line in the first file --- \u003e hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg \u003c---- specifies the line in the second file Level 18 ➡ Level 19 Trying to connect to the next level, the connection gets terminated.\n\u003e ssh bandit18@bandit.labs.overthewire.org -p 2220 . . Byebye ! Connection to bandit.labs.overthewire.org closed. The password for user bandit19 is stored in a file - readme, but logging in and reading the file is not possible, since the goal says that the .bashrc file is modified.\n.bashrc - is a script file that gets executed on every user login. So chaning it changes the login behaviour.\nSince login is not possible, the ssh command is to be used. Commands can be executed on login by specifying them in double quotes at the end of the ssh command. So using the cat command , the file can be read without a session being established.\n\u003e ssh bandit18@bandit.labs.overthewire.org -p 2220 \"cat readme\" . . bandit18@bandit.labs.overthewire.org's password: awhqfNnAbc1naukrpqDYcF95h7HoMTrC Level 19 ➡ Level 20 SUID is a bit set in the permission of a file. It allows to execute a command as an other user.In the file permissions the character ‘x’ is replaced by ’s’ to specify that the SUID bit has been set . The program bandit20-do is used to execute any command as the user bandit20.\nSo with the bandit20-do program the password stored in the file /etc/bandit_pass/bandit20 can be read, as the owner of the file is the user bandit20.\nbandit19@bandit:~$ ls bandit20-do bandit19@bandit:~$ ls -l total 16 -rwsr-x--- 1 bandit20 bandit19 14876 Feb 21 22:03 bandit20-do bandit19@bandit:~$ ./bandit20-do cat /etc/bandit_pass/bandit20 VxCazJaVykI6W36BkBU0mJTCM8rR95XT ",
+  "wordCount" : "1554",
+  "inLanguage": "en",
+  "datePublished": "2023-03-26T22:06:02+05:30",
+  "dateModified": "2023-03-26T22:06:02+05:30",
+  "author":{
+    "@type": "Person",
+    "name": "Divyesh P K"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://pkdiv.dev/docs/overthewire11-20/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "pkdiv",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://pkdiv.dev/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://pkdiv.dev/" accesskey="h" title="pkdiv (Alt + H)">pkdiv</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Overthewire Bandit (Level 11 - 20)
+    </h1>
+    <div class="post-meta"><span title='2023-03-26 22:06:02 +0530 +0530'>March 26, 2023</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Divyesh P K
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="level-10--level-11">Level 10 ➡ Level 11<a hidden class="anchor" aria-hidden="true" href="#level-10--level-11">#</a></h2>
+<p>The password is stored in a file named <em>data.txt</em> and is base64 encoded. Linux has a inbuilt command <em>base64</em> to encode and decode base64. The <em>base64</em> command with the <em>-d</em> flag , followed by the name of the file, gives us the password for the next level.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit10@bandit:~$ ls
+</span></span><span style="display:flex;"><span>data.txt
+</span></span><span style="display:flex;"><span>bandit10@bandit:~$ cat data.txt
+</span></span><span style="display:flex;"><span>VGhlIHBhc3N3b3JkIGlzIDZ6UGV6aUxkUjJSS05kTllGTmI2blZDS3pwaGxYSEJNCg<span style="color:#f92672">==</span>
+</span></span><span style="display:flex;"><span>bandit10@bandit:~$ base64 -d data.txt
+</span></span><span style="display:flex;"><span>The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+</span></span></code></pre></div><hr>
+<h2 id="level-11--level-12">Level 11 ➡ Level 12<a hidden class="anchor" aria-hidden="true" href="#level-11--level-12">#</a></h2>
+<p>Password of the next level is stored in the <em>data.txt</em> file with each character rotated by 13 positions. Which means that of the original data had the character &lsquo;a&rsquo; it would be replaced by the character &rsquo;n&rsquo; in the data file. So to retrieve the password, we should rotate the positions of each character by 13 characters backwards.
+(Note: Here rotating backward or forward doesn&rsquo;t effect the solution as we have 26 Alphanets in English and so 13 being its half gives the same solution irrespective of the direction)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit11@bandit:~$ ls
+</span></span><span style="display:flex;"><span>data.txt
+</span></span><span style="display:flex;"><span>bandit11@bandit:~$ cat data.txt
+</span></span><span style="display:flex;"><span>Gur cnffjbeq vf WIAOOSFzMjXXBC0KoSKBbJ8puQm5lIEi
+</span></span><span style="display:flex;"><span>bandit11@bandit:~$ cat data.txt |  tr <span style="color:#e6db74">&#39;[a-zA-Z]&#39;</span> <span style="color:#e6db74">&#39;[n-za-mN-ZA-M]&#39;</span>
+</span></span><span style="display:flex;"><span>The password is JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+</span></span></code></pre></div><hr>
+<h2 id="level-12--level-13">Level 12 ➡ Level 13<a hidden class="anchor" aria-hidden="true" href="#level-12--level-13">#</a></h2>
+<p>Password for <em>bandit13</em> needs a bit of work . The password is a hexdump of a file that has been compressed repeteadly.
+So we have to first get the original file from the hexdump and then repeatedly decompress the file until we get the password.</p>
+<p><em>xxd</em> is a command to create and reverse hexdumps of files. The <em>-r</em> flag id used to specify that the input file is a hexdump and to reverse it. The text file following the command and the flag is the input file, which is followed by the name of the output file.</p>
+<p><em>file</em> command is used to find out the type of file. The <em>compressr1</em> is a <strong>gzip</strong> file. gzip is one of the tools used to compress files. The <em>gzip</em> command along with the <em>-d</em> flag is used to decompress the <em>.gz</em> file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit12@bandit:~$ cd /tmp/new1
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ xxd -r data.txt compressr1
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ file compressr1
+</span></span><span style="display:flex;"><span>compressr1: gzip compressed data
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ mv compressr1 compressr1.gz
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ gzip -d compressr1.gz
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ ls
+</span></span><span style="display:flex;"><span>compressr1  data.txt
+</span></span></code></pre></div><p>Again running the <em>file</em> command we see that the output of the previous gzip is another compress file but has been compressed using <em>bzip2</em> .
+<em>bzip2</em> is similar to <em>gzip</em> and hence <em>-d</em> flag decompresses it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ file compressr1
+</span></span><span style="display:flex;"><span>compressr1: bzip2 compressed data, block size <span style="color:#f92672">=</span> 900k
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ mv compressr1 compressr1.bz2
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ bzip2 -d compressr1.bz2
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ ls
+</span></span><span style="display:flex;"><span>compressr1  data.txt
+</span></span></code></pre></div><p>We again get a gzip file and use the same commands to decompress it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ file compressr1
+</span></span><span style="display:flex;"><span>compressr1: gzip compressed data
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ mv compressr1 compressr1.gz
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ gzip -d compressr1.gz
+</span></span></code></pre></div><p>The output of the previous iteration is a <em>.tar</em> file which is another compressing tool.</p>
+<p>The format of the output files for futher iterations are the same as one of the previous iterations. The process is just to be repeted until we get the password for the next level.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ file compressr1
+</span></span><span style="display:flex;"><span>compressr1: POSIX tar archive <span style="color:#f92672">(</span>GNU<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ mv compressr1 compressr1.tar
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ tar -xvf compressr1.tar
+</span></span><span style="display:flex;"><span>data5.bin
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ file data5.bin
+</span></span><span style="display:flex;"><span>data5.bin: POSIX tar archive <span style="color:#f92672">(</span>GNU<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ mv data5.bin data5.bin.tar
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ tar -xvf data5.bin.tar
+</span></span><span style="display:flex;"><span>data6.bin
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ file data6.bin
+</span></span><span style="display:flex;"><span>data6.bin: bzip2 compressed data, block size <span style="color:#f92672">=</span> 900k
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ mv data6.bin data6.bin.bz2
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ bzip2 -d data6.bin.bz2
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ file data6.bin
+</span></span><span style="display:flex;"><span>data6.bin: POSIX tar archive <span style="color:#f92672">(</span>GNU<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ tar -xvf data6.bin
+</span></span><span style="display:flex;"><span>data8.bin
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ file data8.bin
+</span></span><span style="display:flex;"><span>data8.bin: gzip compressed data
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ mv data8.bin data8.bin.gz
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ gzip -d data8.bin.gz
+</span></span></code></pre></div><p>After decompressing the file repeatedly we get the ASCII text as the final output.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ file data8.bin
+</span></span><span style="display:flex;"><span>data8.bin: ASCII text
+</span></span><span style="display:flex;"><span>bandit12@bandit:/tmp/new1$ cat data8.bin
+</span></span><span style="display:flex;"><span>The password is wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+</span></span></code></pre></div><hr>
+<h2 id="level-13--level-14">Level 13 ➡ Level 14<a hidden class="anchor" aria-hidden="true" href="#level-13--level-14">#</a></h2>
+<p>The password for the next level is not given rather a <em>sshkey.private</em> is given.Logins through ssh can be done in two ways - entering the password everytime a user logs in or configure ssh to use private and public keys to login.</p>
+<p>For this level, <em>-i</em> flag of the ssh command can be used to specify the file containing the private key of the user <em>bandit14</em>.</p>
+<p>The level goal also says that the password for the current level is stored in the file <em>/etc/bandit_pass/bandit14</em>. (The password maybe not be required for the current level but is required to move to level 15)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit13@bandit:~$ ls
+</span></span><span style="display:flex;"><span>sshkey.private
+</span></span><span style="display:flex;"><span>bandit13@bandit:~$ ssh bandit14@localhost -i sshkey.private -p <span style="color:#ae81ff">2220</span>
+</span></span><span style="display:flex;"><span>The authenticity of host <span style="color:#e6db74">&#39;[localhost]:2220 ([127.0.0.1]:2220)&#39;</span> can<span style="color:#960050;background-color:#1e0010">&#39;</span>t be established.
+</span></span><span style="display:flex;"><span>ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+</span></span><span style="display:flex;"><span>This key is not known by any other names
+</span></span><span style="display:flex;"><span>Are you sure you want to <span style="color:#66d9ef">continue</span> connecting <span style="color:#f92672">(</span>yes/no/<span style="color:#f92672">[</span>fingerprint<span style="color:#f92672">])</span>? yes
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>bandit14@bandit:~$
+</span></span><span style="display:flex;"><span>bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
+</span></span><span style="display:flex;"><span>fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+</span></span></code></pre></div><hr>
+<h2 id="level-14--level-15">Level 14 ➡ Level 15<a hidden class="anchor" aria-hidden="true" href="#level-14--level-15">#</a></h2>
+<p>The password for the next is to be obtained by sending the password of user <em>bandit14</em> to port 30000 on localhost. Localhost refers to the device itself - used to refer to services running on the local device.</p>
+<p><em>nc</em> - netcat is a tool that can be used to make TCP/UDP connection. To send data to a device on the network through a particular port, the command nc is followed by the hostname which is followed by the port number .</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit14@bandit:~$ nc localhost <span style="color:#ae81ff">30000</span>
+</span></span><span style="display:flex;"><span>fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+</span></span><span style="display:flex;"><span>Correct!
+</span></span><span style="display:flex;"><span>jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+</span></span></code></pre></div><hr>
+<h2 id="level-15--level-16">Level 15 ➡ Level 16<a hidden class="anchor" aria-hidden="true" href="#level-15--level-16">#</a></h2>
+<p>The current level is similar to the previous level i.e, data has to be send to a service running on the local device but needs to be encrypted using SSL.</p>
+<p><em>openssl</em> is a tool used to deal with various properties of the SSL protcol. For the current level, openssl is used to open a secure connection to port 30001 on localhost.</p>
+<p>The command <em>openssl s_client</em> is used to esablish a connection with a remote host. <em>-connect</em> is used to specify the hostname and the port seperated by a colon.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit15@bandit:~$ openssl s_client -connect localhost:30001
+</span></span><span style="display:flex;"><span>CONNECTED<span style="color:#f92672">(</span>00000003<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>read R BLOCK
+</span></span><span style="display:flex;"><span>jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+</span></span><span style="display:flex;"><span>Correct!
+</span></span><span style="display:flex;"><span>JQttfApK4SeyHwDlI9SXGR50qclOAil1
+</span></span></code></pre></div><hr>
+<h2 id="level-16--level-17">Level 16 ➡ Level 17<a hidden class="anchor" aria-hidden="true" href="#level-16--level-17">#</a></h2>
+<p>To complete this level we have a task simialr to the previous levels but the port on which the data is to be sent has to be determined. The level goal says that the it is one of the port between 31000 to 32000. To find out the port, the network has to be scanned on these port and to figure out the services running on them.</p>
+<p><em>nmap</em> - network mapper is a tool used to perform various network scans. <em>-sV</em> flag can be used to find the services running on the scanned ports and lists them.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit16@bandit:~$ nmap localhost -p 31000-32000 -sV
+</span></span><span style="display:flex;"><span>Starting Nmap 7.80 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2023-04-03 11:14 UTC
+</span></span><span style="display:flex;"><span>Nmap scan report <span style="color:#66d9ef">for</span> localhost <span style="color:#f92672">(</span>127.0.0.1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Host is up <span style="color:#f92672">(</span>0.00013s latency<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>Not shown: <span style="color:#ae81ff">996</span> closed ports
+</span></span><span style="display:flex;"><span>PORT      STATE SERVICE     VERSION
+</span></span><span style="display:flex;"><span>31046/tcp open  echo
+</span></span><span style="display:flex;"><span>31518/tcp open  ssl/echo
+</span></span><span style="display:flex;"><span>31691/tcp open  echo
+</span></span><span style="display:flex;"><span>31790/tcp open  ssl/unknown
+</span></span><span style="display:flex;"><span>31960/tcp open  echo
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span style="display:flex;"><span>Nmap <span style="color:#66d9ef">done</span>: <span style="color:#ae81ff">1</span> IP address <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span> host up<span style="color:#f92672">)</span> scanned in 98.44 seconds
+</span></span></code></pre></div><p>The result of the <em>nmap</em> shows two ports on which openssl is running. One of these ports sends back the data while the other sends the password for the next level. Connecting to both the ports - port 31790 gives use the password of the next level.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit16@bandit:~$ openssl s_client localhost:31518
+</span></span><span style="display:flex;"><span>CONNECTED<span style="color:#f92672">(</span>00000003<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>read R BLOCK
+</span></span><span style="display:flex;"><span>JQttfApK4SeyHwDlI9SXGR50qclOAil1
+</span></span><span style="display:flex;"><span>JQttfApK4SeyHwDlI9SXGR50qclOAil1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bandit16@bandit:~$ openssl s_client localhost:31790
+</span></span><span style="display:flex;"><span>CONNECTED<span style="color:#f92672">(</span>00000003<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>read R BLOCK
+</span></span><span style="display:flex;"><span>JQttfApK4SeyHwDlI9SXGR50qclOAil1
+</span></span><span style="display:flex;"><span>Correct!
+</span></span><span style="display:flex;"><span>-----BEGIN RSA PRIVATE KEY-----
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>-----END RSA PRIVATE KEY-----
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>closed
+</span></span></code></pre></div><hr>
+<h2 id="level-17--level-18">Level 17 ➡ Level 18<a hidden class="anchor" aria-hidden="true" href="#level-17--level-18">#</a></h2>
+<p>Two files are present in the home directory - <strong>passwords.old</strong> and <strong>passwords.new</strong> . The line that is changed between the two files is the password of the next level.</p>
+<p><em>diff</em> is a command used to find the differences between two files. <em>diff</em> follwed by the file names gives the output.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; ssh bandit17@bandit.labs.overthewire.org -p <span style="color:#ae81ff">2220</span> -i .<span style="color:#ae81ff">\b</span>andit17.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bandit17@bandit:~$ ls
+</span></span><span style="display:flex;"><span>passwords.new  passwords.old
+</span></span><span style="display:flex;"><span>bandit17@bandit:~$ diff passwords.old passwords.new
+</span></span><span style="display:flex;"><span>42c42
+</span></span><span style="display:flex;"><span>&lt; f9wS9ZUDvZoo3PooHgYuuWdawDFvGld2   &lt;---- specifies the line in the first file
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>&gt; hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg    &lt;---- specifies the line in the second file
+</span></span></code></pre></div><hr>
+<h2 id="level-18--level-19">Level 18 ➡ Level 19<a hidden class="anchor" aria-hidden="true" href="#level-18--level-19">#</a></h2>
+<p>Trying to connect to the next level, the connection gets terminated.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; ssh bandit18@bandit.labs.overthewire.org -p <span style="color:#ae81ff">2220</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>Byebye !
+</span></span><span style="display:flex;"><span>Connection to bandit.labs.overthewire.org closed.
+</span></span></code></pre></div><p>The password for user <em>bandit19</em> is stored in a file - <strong>readme</strong>, but logging in and reading the file is not possible, since the goal says that the <strong>.bashrc</strong> file is modified.</p>
+<p><strong>.bashrc</strong> - is a script file that gets executed on every user login. So chaning it changes the login behaviour.</p>
+<p>Since login is not possible, the <em>ssh</em> command is to be used. Commands can be executed on login by specifying them in double quotes at the end of the <em>ssh</em> command. So using the <em>cat</em>  command , the file can be read without a session being established.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; ssh bandit18@bandit.labs.overthewire.org -p <span style="color:#ae81ff">2220</span> <span style="color:#e6db74">&#34;cat readme&#34;</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>bandit18@bandit.labs.overthewire.org<span style="color:#960050;background-color:#1e0010">&#39;</span>s password:
+</span></span><span style="display:flex;"><span>awhqfNnAbc1naukrpqDYcF95h7HoMTrC
+</span></span></code></pre></div><hr>
+<h2 id="level-19--level-20">Level 19 ➡ Level 20<a hidden class="anchor" aria-hidden="true" href="#level-19--level-20">#</a></h2>
+<p>SUID is a bit set in the permission of a file. It allows to execute a command as an other user.In the file permissions the character &lsquo;x&rsquo; is replaced by &rsquo;s&rsquo; to specify that the SUID bit has been set . The program <em>bandit20-do</em> is used to execute any command as the user <em>bandit20</em>.</p>
+<p>So with the <em>bandit20-do</em> program the password stored in the file <strong>/etc/bandit_pass/bandit20</strong>  can be read, as the owner of the file is the user <em>bandit20</em>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bandit19@bandit:~$ ls
+</span></span><span style="display:flex;"><span>bandit20-do
+</span></span><span style="display:flex;"><span>bandit19@bandit:~$ ls -l
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span>-rwsr-x--- <span style="color:#ae81ff">1</span> bandit20 bandit19 <span style="color:#ae81ff">14876</span> Feb <span style="color:#ae81ff">21</span> 22:03 bandit20-do
+</span></span><span style="display:flex;"><span>bandit19@bandit:~$ ./bandit20-do cat /etc/bandit_pass/bandit20
+</span></span><span style="display:flex;"><span>VxCazJaVykI6W36BkBU0mJTCM8rR95XT
+</span></span></code></pre></div><hr>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Overthewire Bandit (Level 11 - 20) on twitter"
+        href="https://twitter.com/intent/tweet/?text=Overthewire%20Bandit%20%28Level%2011%20-%2020%29&amp;url=https%3a%2f%2fpkdiv.dev%2fdocs%2foverthewire11-20%2f&amp;hashtags=">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Overthewire Bandit (Level 11 - 20) on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fpkdiv.dev%2fdocs%2foverthewire11-20%2f&amp;title=Overthewire%20Bandit%20%28Level%2011%20-%2020%29&amp;summary=Overthewire%20Bandit%20%28Level%2011%20-%2020%29&amp;source=https%3a%2f%2fpkdiv.dev%2fdocs%2foverthewire11-20%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Overthewire Bandit (Level 11 - 20) on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fpkdiv.dev%2fdocs%2foverthewire11-20%2f&title=Overthewire%20Bandit%20%28Level%2011%20-%2020%29">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Overthewire Bandit (Level 11 - 20) on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fpkdiv.dev%2fdocs%2foverthewire11-20%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Overthewire Bandit (Level 11 - 20) on whatsapp"
+        href="https://api.whatsapp.com/send?text=Overthewire%20Bandit%20%28Level%2011%20-%2020%29%20-%20https%3a%2f%2fpkdiv.dev%2fdocs%2foverthewire11-20%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Overthewire Bandit (Level 11 - 20) on telegram"
+        href="https://telegram.me/share/url?text=Overthewire%20Bandit%20%28Level%2011%20-%2020%29&amp;url=https%3a%2f%2fpkdiv.dev%2fdocs%2foverthewire11-20%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://pkdiv.dev/">pkdiv</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
